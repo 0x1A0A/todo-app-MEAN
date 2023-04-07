@@ -1,0 +1,17 @@
+<div *ngFor="let a of this.task.filtered()" class="grid grid-cols-[5fr_1fr] py-0 items-start w-full hover:py-1 transition-all group hover:cursor-pointer">
+    <p [attr.id]="a._id" [attr.data-task]="a.status" (click)="onClick($event)" class="ring-2 text-slate-950 ring-slate-100 justify-self-start p-4 py-1 pl-2 rounded mr-4 hover:ml-2 hover:mr-2 transition-all data-[task=done]:line-through data-[task=doing]:ring-orange-400 data-[task=done]:text-slate-300 data-[task=todo]:ring-slate-300">{{a.title}}</p>
+    <div class="flex group-hover:border-t-2 transition-all">
+        <button s="todo" [attr.id]="a._id" [attr.data-active]="a.status=='todo'" (click)="onChangeStatus($event)" class="text-gray-200 ml-auto mr-2 data-[active=true]:text-gray-500 hover:border-t-2 transition-all">
+            <fa-icon [icon]="faTodo" size="xs" class="hover:text-lg transition-all"></fa-icon>
+        </button>
+        <button s="doing" [attr.id]="a._id" [attr.data-active]="a.status=='doing'" (click)="onChangeStatus($event)" class="text-orange-200 ml-auto mr-2 data-[active=true]:text-orange-500 hover:border-t-2 transition-all">
+            <fa-icon [icon]="faDoin" size="xs" class="hover:text-lg transition-all"></fa-icon>
+        </button>
+        <button s="done" [attr.id]="a._id" [attr.data-active]="a.status=='done'" (click)="onChangeStatus($event)" class="text-green-200 ml-auto mr-2 data-[active=true]:text-green-500 hover:border-t-2 transition-all">
+            <fa-icon [icon]="faDone" size="xs" class="hover:text-lg transition-all"></fa-icon>
+        </button>
+        <button [attr.id]="a._id" (click)="onDel($event)" class="text-slate-100 hover:text-red-500 ml-auto mr-2 hover:border-t-2 transition-all">
+            <fa-icon [icon]="faDel" size="xs" class="hover:text-lg transition-all"></fa-icon>
+        </button>
+    </div>
+</div>

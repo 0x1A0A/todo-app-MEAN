@@ -1,0 +1,5 @@
+<div (click)="clickParent($event)" class="focus-within:ring-2 rounded-full p-2 pl-4 bg-slate-100">
+    <input type="text" (keyup.enter)="onEnter($event)" placeholder="..."
+    class="border-none outline-none bg-transparent mr-2">
+    <fa-icon [icon]="faPlus" size="xl"></fa-icon>
+</div>
