@@ -2,3 +2,4 @@ node_modules
 payload
 mongo.sh
 .env
+target
