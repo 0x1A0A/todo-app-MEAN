@@ -17,7 +17,7 @@ app.use(function(req: Request, res: Response, next: NextFunction) {
 app.use("/task", route);
 
 async function mongoConnect() {
-    await mongoose.connect(`mongodb://${process.env.DB_IP}:${process.env.DB_PORT}/${process.env.DB_MONGODATABASE}`, {
+    await mongoose.connect(`mongodb://${process.env.DB_IP}:${process.env.DB_PORT}/${process.env.DB_MONGODATABASE}?authSource=admin`, {
       auth: {
         username: process.env.DB_USER,
         password: process.env.DB_PASSWD,
