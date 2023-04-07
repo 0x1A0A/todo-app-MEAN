@@ -1,0 +1,6 @@
+FROM node
+WORKDIR todoServer
+
+COPY . .
+RUN npm install --omit=dev
+CMD ["node", "target/index.js"]

@@ -1,0 +1,26 @@
+services: 
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: passwd
+    volumes:
+      - mongo_volume:/data/db
+    
+  app:
+    build: ../../backend
+    ports:
+      - "3000:3000"
+    environment:
+      DB_PORT: 27017
+      DB_IP: db
+      DB_USER: mongo
+      DB_PASSWD: passwd
+      DB_MONGODATABASE: testdb
+      APP_PORT: 3000
+
+volumes:
+  mongo_volume:
